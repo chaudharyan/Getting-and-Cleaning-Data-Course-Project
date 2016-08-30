@@ -1,10 +1,4 @@
 
-
-dataset_function <- function()
-{
-    
- 
-    
     # Set the working directory where all the files are saved.
     
         setwd("C:/Users/chaudharyan/Desktop/Coursera-MainFolder")
@@ -109,25 +103,15 @@ dataset_function <- function()
                     colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
                     colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
                     colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
-                    colnames(final_data)<- gsub("mean\\()", "Mean\\()", names(final_data))
+                    colnames(final_data)<- gsub("mean", "Mean", names(final_data))
                     colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
-                    
-                   
-                        
-      return(final_data)
-    
-    
-    
-}
-
-   
-
+                    colnames(final_data)<- gsub("\\()", "", names(final_data))
+        
 ####  5.  Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-        # Returns the dataset from the above function
-             tidy_dataset <-dataset_function()
+        
              
-             temp_dataset<-lapply(tidy_dataset, function(x) type.convert(as.character(x)))
+             temp_dataset<-lapply(final_data, function(x) type.convert(as.character(x)))
 
         # summarizing the data and finding mean value of all variables for each Activity and Subject
              final <- aggregate(.~Activity+Subject, temp_dataset, mean)
