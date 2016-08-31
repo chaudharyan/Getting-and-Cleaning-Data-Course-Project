@@ -17,23 +17,21 @@ See README.txt for analysis of run_analyis.R
 
 ### Variables in run_analysis.R:
 
-	 * Activity  
-	 * Subject
-	 * Measurement Variables  (79 columns)
+	 * #### Activity  
+	 * #### Subject
+	 * #### Measurement Variables  (79 columns)
 
 
-#### Activity Variable 
+### Activity Variable 
+		Activity Description	Corresponding Activity Number
+	1.	WALKING 			1
+	2. 	WALKING_UPSTAIRS		2
+	3. 	WALKING_DOWNSTAIRS		3
+	4. 	SITTING				4
+	5. 	STANDING			5
+	6. 	LAYING				6
 
-		| Activity Description	| Corresponding Activity Number|
-		| -------------------- 	|------------------------------|
-		| WALKING        	|         1		       |
-		| WALKING_UPSTAIRS      |  	  2		       |
-		| WALKING_DOWNSTAIRS   	|  	  3		       |		
-		| SITTING        	|  	  4		       |		
-		| STANDING         	|   	  5		       |		
-		| LAYING        	|  	  6		       |			
-
-      
+		
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 ### Subject
 
@@ -44,8 +42,8 @@ Each row identifies the subject who performed the activity for each window sampl
 ### Measurement Variable and Description
 
 	
-**'f'** indicate frequency domain signals 
-**'t'** denote time
+**'f'** indicate frequency domain signals<br> 
+**'t'** denote time <br>
 **XYZ** denotes 3-axial signals in the **X**, **Y** and **Z** directions.
 
 		tBodyAcc-XYZ
@@ -67,11 +65,11 @@ Each row identifies the subject who performed the activity for each window sampl
 		fBodyGyroJerkMag
 
 
-**(tAcc-XYZ and tGyro-XYZ)** : These columns come from the accelerometer and gyroscope 3-axial raw signals. 
-**(tBodyAcc-XYZ and tGravityAcc-XYZ)**: The acceleration signal was then separated into body and gravity acceleration signals 
-**(tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ)** : The body linear acceleration and angular velocity were derived in time to obtain Jerk signals
-**(tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag)** : Three-dimensional signals were calculated using the Euclidean norm	
-**(fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag)** : a Fast Fourier Transform (FFT) was applied to some of these signals
+**(tAcc-XYZ and tGyro-XYZ)** : These columns come from the accelerometer and gyroscope 3-axial raw signals. <br> 
+**(tBodyAcc-XYZ and tGravityAcc-XYZ)**: The acceleration signal was then separated into body and gravity acceleration signals <br> 
+**(tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ)** : The body linear acceleration and angular velocity were derived in time to obtain Jerk signals<br> 
+**(tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag)** : Three-dimensional signals were calculated using the Euclidean norm	<br> 
+**(fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag)** : a Fast Fourier Transform (FFT) was applied to some of these signals<br> 
 	
 
 
