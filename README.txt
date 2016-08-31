@@ -75,8 +75,8 @@ For Task 1: These two datasets are joined together to create a single dataset ca
 
 		   			joined_data<-rbind(train_data,test_data)
 
-For Task 2: Only those measurement columns are extracted from above dataset which contains either strings 'mean' or 'std'
-	    Grep() is used as these strings could be found anywhere (beginning, middle or end) in the column names
+For Task 2: Only those measurement columns are extracted from above dataset which contains either 'mean' or 'std'
+	   Grep() searches for strings anywhere in the column names
 
 For Task 3:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as 
 	   WALKING,
@@ -93,8 +93,8 @@ For Task 4: Descriptive variable names means names based on the action the varia
 The labels are made more cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
 					
  
-For Task 5 : The above dataset is summarized by finding the average value of all the variables by Activity by Subject. 
-Variable here means independent measurements of activity/subject actions
+For Task 5 : The above dataset is summarized by finding the average value of all the variables by Activity by Subject.Variable here means
+independent measurements of activity/subject actions
 	     Aggregate() is used to find mean of all measurement labelsfor each activity and each subject
 			      
 
