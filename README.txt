@@ -1,6 +1,6 @@
 
 GETTING AND CLEANING DATA COURSE README
-====================================================================================================================================================================
+================================================================================================================
 
 
 This repo includes the following files:
@@ -35,7 +35,7 @@ For each record it is provided:
 	
 
 Analysis of run_analysis.R
-=================================================================
+=============================================
 This files does the following Tasks :
 
 	Task 1. Merges the training and the test sets to create one data set.
