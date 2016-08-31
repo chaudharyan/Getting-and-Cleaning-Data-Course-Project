@@ -91,26 +91,26 @@ These two datasets are appended since they were randomly partitioned for trainin
 		
  * **Task 4**: The labels were made cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.	  
 		Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'<br>
-			**sub()** replaces only the first instance of the pattern <br><br>
+			**sub()** replaces only the first instance of the pattern
 
 	  		colnames(final_data)<- sub("^t", "Time", names(final_data))
 			colnames(final_data)<- sub("^f", "Frequency", names(final_data))	
 	 
           
 		<br>Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'<br>
-			**gsub()** replaces all instances of pattern string<br><br>
+			**gsub()** replaces all instances of pattern string
 
 			colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
 			colnames(final_data)<- gsub("std\\()", "StandardDeviation\\()", names(final_data))
 			colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
 			colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
 
-		<br>Replace words with lowercase first letter to Uppercase<br><br>
+		<br>Replace words with lowercase first letter to Uppercase
 
 			colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
 			colnames(final_data)<- gsub("mean", "Mean", names(final_data))
 
-		<br>Remove any paranthesis and replace any word 'BodyBody' to 'Body'<br><br>
+		<br>Remove any paranthesis and replace any word 'BodyBody' to 'Body'
 
 			colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
 			colnames(final_data)<- gsub("\\()", "", names(final_data))
