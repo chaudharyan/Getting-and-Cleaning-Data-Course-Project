@@ -79,13 +79,13 @@ These two datasets are appended since they were randomly partitioned for trainin
 	   **Grep()** searches for these strings anywhere in the column names and returns the column index 
 
  * **Task 3**:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as<br> 
-	1: WALKING,
-	2: WALKING_UPSTAIRS,
-	3: WALKING_DOWNSTAIRS,
-	4: SITTING,
-	5: STANDING 
-	6: LAYING
- <br><br>
+		1: WALKING,
+		2: WALKING_UPSTAIRS,
+		3: WALKING_DOWNSTAIRS,
+		4: SITTING,
+		5: STANDING 
+		6: LAYING
+ 
 			      
 	   **Merge()** adds descriptive activity name to its corresponding activity number. <br>
 	   It adds the activity name column at the end of the dataset hence the dataset was reordered to make activity name as the first column and remove Activity number column
@@ -100,9 +100,9 @@ These two datasets are appended since they were randomly partitioned for trainin
 	 
           
 	<br>Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'<br>
-		**gsub() replaces all instances of pattern string<br><br>
+		**gsub()** replaces all instances of pattern string<br><br>
 
-	 	colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
+		colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
                 colnames(final_data)<- gsub("std\\()", "StandardDeviation\\()", names(final_data))
                 colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
                 colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
@@ -110,12 +110,12 @@ These two datasets are appended since they were randomly partitioned for trainin
 	<br>Replace words with lowercase first letter to Uppercase<br><br>
 
 		colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
-                colnames(final_data)<- gsub("mean", "Mean", names(final_data))
+		colnames(final_data)<- gsub("mean", "Mean", names(final_data))
 
 	<br>Remove any paranthesis and replace any word 'BodyBody' to 'Body'<br><br>
 
-		 colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
-                 colnames(final_data)<- gsub("\\()", "", names(final_data))
+		colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
+		colnames(final_data)<- gsub("\\()", "", names(final_data))
 
 	
 		
