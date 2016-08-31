@@ -1,6 +1,6 @@
 
 ## Getting and Cleaning Data Course Project README
-======================================================================================================
+-----------------------------------------------------------------------------------------
 
 
 This repo includes the following files:
@@ -11,7 +11,7 @@ This repo includes the following files:
 4. README.txt     : Analysis of run_analyis.R
 
 ### Background:
-=========================================
+-----------------------------------------------------------------------------------------
 	
 One of the most exciting areas in all of data science right now is wearable computing - see for example [Data Science, Wearable Computing and the Battle 
 for the Throne as World’s Top Sports Brand](http://www.insideactivitytracking.com/data-science-activity-tracking-and-the-battle-for-the-worlds-top-sports-brand/).Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. 
@@ -35,14 +35,14 @@ For each record it is provided:
 	
 
 ### Analysis of run_analysis.R
-=============================================
+-----------------------------------------------------------------------------------------
 This files does the following Tasks :
 
- * Task 1. Merges the training and the test sets to create one data set.
- * Task 2. Extracts only the measurements on the mean and standard deviation for each measurement.
- * Task 3. Uses descriptive activity names to name the activities in the data set
- * Task 4. Appropriately labels the data set with descriptive variable names.
- * Task 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+	Task 1. Merges the training and the test sets to create one data set.
+	Task 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+	Task 3. Uses descriptive activity names to name the activities in the data set
+	Task 4. Appropriately labels the data set with descriptive variable names.
+	Task 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
 Human Activity Recognition Using Smartphones Dataset is randomly partitioned for training and testing purpose into two sets Training set and Test set and these files are saved as follows
@@ -71,68 +71,68 @@ It then reads all the above files and renames columns in the files where needed 
 The two datasets are created namely training dataset and test dataset by adding Subject and Activity columns to the beginning of train_x and test_x files.<br>
 These two datasets are appended since they were randomly partitioned for training and testing purpose as mentioned earlier
 		  
- * Task 1: The two datasets above are joined together to create a single dataset called joined_dataset <br>
+ * **Task 1**: The two datasets above are joined together to create a single dataset called joined_dataset <br>
 	**rbind()** appends test dataset to train dataset 
 
 		 joined_data<-rbind(train_data,test_data)
 
- * Task 2: Extracted only those measurement columns from joined_data where the column names contain either 'mean' or 'std' string.<br>
+ * **Task 2**: Extracted measurement columns from joined_data where the column names contain either 'mean' or 'std' string.<br>
 	   **Grep()** searches for these strings anywhere in the column names and returns the column index 
 
- * Task 3:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as 
-	   1: WALKING,
-	   2: WALKING_UPSTAIRS,
-	   3: WALKING_DOWNSTAIRS,
- 	   4: SITTING,
-	   5: STANDING 
-	   6: LAYING
-
+ * **Task 3**:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as<br> 
+	1: WALKING,
+	2: WALKING_UPSTAIRS,
+	3: WALKING_DOWNSTAIRS,
+	4: SITTING,
+	5: STANDING 
+	6: LAYING
+ <br><br>
 			      
-	   **Merge()** adds descriptive activity name to its corresponding activity number. 
+	   **Merge()** adds descriptive activity name to its corresponding activity number. <br>
 	   It adds the activity name column at the end of the dataset hence the dataset was reordered to make activity name as the first column and remove Activity number column
 		
- * Task 4: The labels of the datasets are made more cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
+ * **Task 4**: The labels were made cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
 	  
-	  Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'<Enter>
-	   **sub()** replaces only the first instance of the pattern
+	Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'<br>
+	**sub()** replaces only the first instance of the pattern <br><br>
 
 	  	colnames(final_data)<- sub("^t", "Time", names(final_data))
 		colnames(final_data)<- sub("^f", "Frequency", names(final_data))	
 	 
           
-          Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'
-	   **gsub() replaces all instances of pattern string
+	<br>Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'<br>
+	**gsub() replaces all instances of pattern string<br>
 	 	colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
                 colnames(final_data)<- gsub("std\\()", "StandardDeviation\\()", names(final_data))
                 colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
                 colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
 
-	  Replace words with lowercase first letter to Uppercase
+	<br>Replace words with lowercase first letter to Uppercase<br>
 		colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
                 colnames(final_data)<- gsub("mean", "Mean", names(final_data))
 
-	  Remove any paranthesis and replace any word 'BodyBody' to 'Body'
+	<br>Remove any paranthesis and replace any word 'BodyBody' to 'Body'<br>
 		 colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
                  colnames(final_data)<- gsub("\\()", "", names(final_data))
 
 	
 		
 
- * Task 5 : Summarize the dataset by finding average value of all the variables by Activity and by Subject.
-	    Variable here means independent measurements of activity/subject actions
-	    **aggregate() is used to find mean of all measurement labels for each activity and subject
+ * **Task 5** : Summarize the dataset by finding average value of all the variables by Activity and by Subject.<br>
+	Variable here means independent measurements of activity/subject actions<br>
+	**aggregate() is used to find mean of all measurement labels for each activity and subject<br>
 		 
 			  		    
 
 
 Tidy data created with above steps is not made to be look neat in programs like notepad (usually default for text files on windows) 
-Hence write.table is used to save the data to a file _'Week4_Getting_Cleaning_Data.txt'_ in the working directory. 
+Hence **write.table()** is used to save the data to a file _'Week4_Getting_Cleaning_Data.txt'_ in the working directory. 
 
 
 ### Analyze Week4_Getting_Cleaning_Data.txt
-================================================= 
+-----------------------------------------------------------------------------------------
 	data <- read.table(file_path, header = TRUE) 
-        View(data)
+	View(data)
 
 
 
