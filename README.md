@@ -97,7 +97,7 @@ These two datasets are appended since they were randomly partitioned for trainin
 			colnames(final_data)<- sub("^f", "Frequency", names(final_data))	
 	 
           
-		<br>Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'<br>
+		Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'
 			**gsub()** replaces all instances of pattern string
 
 			colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
@@ -105,12 +105,12 @@ These two datasets are appended since they were randomly partitioned for trainin
 			colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
 			colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
 
-		<br>Replace words with lowercase first letter to Uppercase
+		Replace words with lowercase first letter to Uppercase
 
 			colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
 			colnames(final_data)<- gsub("mean", "Mean", names(final_data))
 
-		<br>Remove any paranthesis and replace any word 'BodyBody' to 'Body'
+		Remove any paranthesis and replace any word 'BodyBody' to 'Body'
 
 			colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
 			colnames(final_data)<- gsub("\\()", "", names(final_data))
