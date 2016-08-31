@@ -46,37 +46,38 @@ This files does the following Tasks :
 
 
 Human Activity Recognition Using Smartphones Dataset is randomly partitioned for training and testing purpose into two sets Training set and Test set and these files are saved as follows
-- 'X_train.txt': Training set.
-- 'y_train.txt': Training labels.
-- 'X_test.txt': Test set.
-- 'y_test.txt': Test labels.
-- 'features_info.txt': Shows information about the variables used on the feature vector.
+- 'X_train.txt':  Training set.
+- 'y_train.txt':  Training labels.
+- 'X_test.txt' :  Test set.
+- 'y_test.txt' :  Test labels.
 - 'features.txt': List of all features.
+- 'subject_train.txt': Subject who performed the activity for each window sample. Its range is from 1 to 30. 
+- 'features_info.txt': Shows information about the variables used on the feature vector.
 - 'activity_labels.txt': Links the class labels with their activity name.
-- 'subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
 
-The Script first sets the working directory which can be changed by any user.<Enter> 
+
+The Script first sets the working directory which can be changed by any user.<br>
 It then reads all the above files and renames columns in the files where needed as seen below:
  				            
-                colnames(test_y)<-"Activity"
-		colnames(train_y)<-"Activity"            			 
-                colnames(test_subject) <-"Subject" 
-		colnames(train_subject) <-"Subject"          			
-                colnames(test_x)<-feature$V2
-		colnames(train_x)<-feature$V2
+	colnames(test_y)<-"Activity"
+	colnames(train_y)<-"Activity"            			 
+	colnames(test_subject) <-"Subject" 
+	colnames(train_subject) <-"Subject"          			
+	colnames(test_x)<-feature$V2
+	colnames(train_x)<-feature$V2
             
 
-The two datasets are created namely training dataset and test dataset by adding Subject and Activity columns to the beginning of train_x and test_x files.
+The two datasets are created namely training dataset and test dataset by adding Subject and Activity columns to the beginning of train_x and test_x files.<br>
 These two datasets are appended since they were randomly partitioned for training and testing purpose as mentioned earlier
 		  
- * Task 1: The two datasets above are joined together to create a single dataset called joined_dataset 
-	   **rbind() appends test dataset to train dataset 
+ * Task 1: The two datasets above are joined together to create a single dataset called joined_dataset <br>
+	**rbind()** appends test dataset to train dataset 
 
 		 joined_data<-rbind(train_data,test_data)
 
- * Task 2: Extracted only those measurement columns from joined_data where the column names contain either 'mean' or 'std' string.
-	   **Grep() searches for these strings anywhere in the column names and returns the column index 
+ * Task 2: Extracted only those measurement columns from joined_data where the column names contain either 'mean' or 'std' string.<br>
+	   **Grep()** searches for these strings anywhere in the column names and returns the column index 
 
  * Task 3:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as 
 	   1: WALKING,
@@ -87,13 +88,13 @@ These two datasets are appended since they were randomly partitioned for trainin
 	   6: LAYING
 
 			      
-	   **Merge() adds descriptive activity name to its corresponding activity number. Merge() add the activity name column at the end of the dataset.
-	   Therefore dataset was reordered to make activity name as the first column and remove Activity number column
+	   **Merge()** adds descriptive activity name to its corresponding activity number. 
+	   It adds the activity name column at the end of the dataset hence the dataset was reordered to make activity name as the first column and remove Activity number column
 		
  * Task 4: The labels of the datasets are made more cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
 	  
-	  Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'
-	   **sub() replaces only the first instance of the pattern
+	  Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'<Enter>
+	   **sub()** replaces only the first instance of the pattern
 
 	  	colnames(final_data)<- sub("^t", "Time", names(final_data))
 		colnames(final_data)<- sub("^f", "Frequency", names(final_data))	
