@@ -22,31 +22,31 @@ See README.txt for analysis of run_analyis.R
 	 * Measurement Variables  (79 columns)
 
 
-&nbsp;&nbsp;#### Activity Variable 
+#### Activity Variable 
 
-		| Activity Description	| Corresponding Activity Number  |
-		| -----------------    	|:-------------			 |
-		| WALKING              	|         1			 |
-		| WALKING_UPSTAIRS      |  	  2			 |
-		| WALKING_DOWNSTAIRS   	|  	  3			 |		
-		| SITTING        	|  	  4			 |		
-		| STANDING         	|   	  5			 |		
-		| LAYING        	|  	  6			 |			
+		| Activity Description	| Corresponding Activity Number|
+		| -------------------- 	|------------------------------|
+		| WALKING        	|         1		       |
+		| WALKING_UPSTAIRS      |  	  2		       |
+		| WALKING_DOWNSTAIRS   	|  	  3		       |		
+		| SITTING        	|  	  4		       |		
+		| STANDING         	|   	  5		       |		
+		| LAYING        	|  	  6		       |			
 
       
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-&nbsp;&nbsp;### Subject
+### Subject
 
-		The experiments have been carried out with a group of 30 volunteers also called subject within an age bracket of 19-48 years.
-		Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+The experiments have been carried out with a group of 30 volunteers also called subject within an age bracket of 19-48 years.<br>
+Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 	
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-&nbsp;&nbsp;### Measurement Variable and Description
+### Measurement Variable and Description
 
 	
-		**'f'** indicate frequency domain signals 
-		**'t'** denote time
-		**XYZ** denotes 3-axial signals in the **X**, **Y** and **Z** directions.
+**'f'** indicate frequency domain signals 
+**'t'** denote time
+**XYZ** denotes 3-axial signals in the **X**, **Y** and **Z** directions.
 
 		tBodyAcc-XYZ
 		tGravityAcc-XYZ
@@ -67,15 +67,15 @@ See README.txt for analysis of run_analyis.R
 		fBodyGyroJerkMag
 
 
-  	**(tAcc-XYZ and tGyro-XYZ)**            	: These columns come from the accelerometer and gyroscope 3-axial raw signals. 
-  	**(tBodyAcc-XYZ and tGravityAcc-XYZ)**  	: The acceleration signal was then separated into body and gravity acceleration signals 
-  	**(tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ)**  : The body linear acceleration and angular velocity were derived in time to obtain Jerk signals
-  	**(tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag)** : Three-dimensional signals were calculated using the Euclidean norm	
-  	**(fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag)** : a Fast Fourier Transform (FFT) was applied to some of these signals
+**(tAcc-XYZ and tGyro-XYZ)** : These columns come from the accelerometer and gyroscope 3-axial raw signals. 
+**(tBodyAcc-XYZ and tGravityAcc-XYZ)**: The acceleration signal was then separated into body and gravity acceleration signals 
+**(tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ)** : The body linear acceleration and angular velocity were derived in time to obtain Jerk signals
+**(tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag)** : Three-dimensional signals were calculated using the Euclidean norm	
+**(fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag)** : a Fast Fourier Transform (FFT) was applied to some of these signals
 	
 
 
-	The set of variables that were estimated from these signals are: 
+The set of variables that were estimated from these signals are: 
 
 		Mean(): Mean value
 		standardDeviation(): Standard deviation
