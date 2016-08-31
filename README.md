@@ -85,8 +85,7 @@ These two datasets are appended since they were randomly partitioned for trainin
 			4: SITTING,<br>
 			5: STANDING <br>
 			6: LAYING
- 
-			      
+ 			      
 	   		**Merge()** adds descriptive activity name to its corresponding activity number.It adds the activity name column at the end of the dataset hence the dataset was reordered to make activity name as the first column and remove Activity number column
 		
  * **Task 4**: The labels were made cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.	  
