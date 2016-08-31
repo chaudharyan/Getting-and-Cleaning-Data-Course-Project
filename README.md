@@ -1,5 +1,5 @@
 
-GETTING AND CLEANING DATA COURSE README
+## Getting and Cleaning Data Course Project README
 ======================================================================================================
 
 
@@ -10,14 +10,14 @@ This repo includes the following files:
 3. Week4_Getting_Cleaning_Data.txt : Output file generated after running run_analysis.R 
 4. README.txt     : Analysis of run_analyis.R
 
-Background for run_analysis.R:
+### Background:
 =========================================
 	
-One of the most exciting areas in all of data science right now is wearable computing - see for example "Data Science, Wearable Computing and 
-the Battle for the Throne as World’s Top Sports Brand"  (http://www.insideactivitytracking.com/data-science-activity-tracking-and-the-battle-for-the-worlds-top-sports-brand/).
-Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. The data linked to from the course 
-website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data 
-was obtained :"Human Activity Recognition Using Smartphones Data Set" (http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+One of the most exciting areas in all of data science right now is wearable computing - see for example [Data Science, Wearable Computing and the Battle 
+for the Throne as World’s Top Sports Brand](http://www.insideactivitytracking.com/data-science-activity-tracking-and-the-battle-for-the-worlds-top-sports-brand/).Companies like Fitbit, Nike, and Jawbone Up are racing to develop the most advanced algorithms to attract new users. 
+
+The data linked to from the course website represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data 
+was obtained :[Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
 
 
 
@@ -34,18 +34,18 @@ For each record it is provided:
 
 	
 
-Analysis of run_analysis.R
+### Analysis of run_analysis.R
 =============================================
 This files does the following Tasks :
 
-Task 1. Merges the training and the test sets to create one data set.
-Task 2. Extracts only the measurements on the mean and standard deviation for each measurement.
-Task 3. Uses descriptive activity names to name the activities in the data set
-Task 4. Appropriately labels the data set with descriptive variable names.
-Task 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+ * Task 1. Merges the training and the test sets to create one data set.
+ * Task 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+ * Task 3. Uses descriptive activity names to name the activities in the data set
+ * Task 4. Appropriately labels the data set with descriptive variable names.
+ * Task 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 
-Human Activity Recognition Using Smartphones Dataset is randomly partitioned for training and testing purpose into two sets Training set and Test set and these files are stored as follows
+Human Activity Recognition Using Smartphones Dataset is randomly partitioned for training and testing purpose into two sets Training set and Test set and these files are saved as follows
 - 'X_train.txt': Training set.
 - 'y_train.txt': Training labels.
 - 'X_test.txt': Test set.
@@ -56,54 +56,79 @@ Human Activity Recognition Using Smartphones Dataset is randomly partitioned for
 - 'subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
 
 
-The Script first sets the working directory which can be changed by any user. 
-It reads all the above files. And renames columns where needed and appropriate as seen below:
+The Script first sets the working directory which can be changed by any user.<Enter> 
+It then reads all the above files and renames columns in the files where needed as seen below:
  				            
-                			colnames(test_y)<-"Activity"
-					colnames(train_y)<-"Activity"            			 
-                			colnames(test_subject) <-"Subject" 
-					colnames(train_subject) <-"Subject"          			
-                			colnames(test_x)<-feature$V2
-					colnames(train_x)<-feature$V2
+                colnames(test_y)<-"Activity"
+		colnames(train_y)<-"Activity"            			 
+                colnames(test_subject) <-"Subject" 
+		colnames(train_subject) <-"Subject"          			
+                colnames(test_x)<-feature$V2
+		colnames(train_x)<-feature$V2
             
 
-It creates two datasets ,training dataset and test dataset, by column binding the Subject and Activity files to X_train and X_test files.
+The two datasets are created namely training dataset and test dataset by adding Subject and Activity columns to the beginning of train_x and test_x files.
 These two datasets are appended since they were randomly partitioned for training and testing purpose as mentioned earlier
 		  
-For Task 1: These two datasets are joined together to create a single dataset called joined_dataset
-	    Using rbind() to add test dataset rows to train dataset rows 
+ * Task 1: The two datasets above are joined together to create a single dataset called joined_dataset 
+	   **rbind() appends test dataset to train dataset 
 
-		   			joined_data<-rbind(train_data,test_data)
+		 joined_data<-rbind(train_data,test_data)
 
-For Task 2: Only those measurement columns are extracted from above dataset which contains either 'mean' or 'std'
-	   Grep() searches for strings anywhere in the column names
+ * Task 2: Extracted only those measurement columns from joined_data where the column names contain either 'mean' or 'std' string.
+	   **Grep() searches for these strings anywhere in the column names and returns the column index 
 
-For Task 3:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as 
-	   WALKING,
-	   WALKING_UPSTAIRS,
-	   WALKING_DOWNSTAIRS,
- 	   SITTING,
-	   STANDING 
-	   LAYING
+ * Task 3:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as 
+	   1: WALKING,
+	   2: WALKING_UPSTAIRS,
+	   3: WALKING_DOWNSTAIRS,
+ 	   4: SITTING,
+	   5: STANDING 
+	   6: LAYING
 
 			      
-Merge() is used to add activity name to its corresponding activity number. Reordered dataset to keep Activity name and remove Activity number column
+	   **Merge() adds descriptive activity name to its corresponding activity number. Merge() add the activity name column at the end of the dataset.
+	   Therefore dataset was reordered to make activity name as the first column and remove Activity number column
 		
-For Task 4: Descriptive variable names means names based on the action the variable is recording, for example the Jerk of the body on the z axis.
-The labels are made more cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
-					
- 
-For Task 5 : The above dataset is summarized by finding the average value of all the variables by Activity by Subject.Variable here means
-independent measurements of activity/subject actions
-	     Aggregate() is used to find mean of all measurement labelsfor each activity and each subject
-			      
+ * Task 4: The labels of the datasets are made more cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
+	  
+	  Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'
+	   **sub() replaces only the first instance of the pattern
+
+	  	colnames(final_data)<- sub("^t", "Time", names(final_data))
+		colnames(final_data)<- sub("^f", "Frequency", names(final_data))	
+	 
+          
+          Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'
+	   **gsub() replaces all instances of pattern string
+	 	colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
+                colnames(final_data)<- gsub("std\\()", "StandardDeviation\\()", names(final_data))
+                colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
+                colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
+
+	  Replace words with lowercase first letter to Uppercase
+		colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
+                colnames(final_data)<- gsub("mean", "Mean", names(final_data))
+
+	  Remove any paranthesis and replace any word 'BodyBody' to 'Body'
+		 colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
+                 colnames(final_data)<- gsub("\\()", "", names(final_data))
+
+	
+		
+
+ * Task 5 : Summarize the dataset by finding average value of all the variables by Activity and by Subject.
+	    Variable here means independent measurements of activity/subject actions
+	    **aggregate() is used to find mean of all measurement labels for each activity and subject
+		 
+			  		    
 
 
-Tidy data is not made to be look neat in programs like notepad (usually default for text files on windows) 
-Hence write.table is used to save the data to a file 'Week4_Getting_Cleaning_Data.txt' in the working directory. 
+Tidy data created with above steps is not made to be look neat in programs like notepad (usually default for text files on windows) 
+Hence write.table is used to save the data to a file _'Week4_Getting_Cleaning_Data.txt'_ in the working directory. 
 
 
-View the data in Week4_Getting_Cleaning_Data.txt
+### Analyze Week4_Getting_Cleaning_Data.txt
 ================================================= 
 	data <- read.table(file_path, header = TRUE) 
         View(data)
