@@ -118,4 +118,4 @@
 
 
         # Exporting data 
-             write.table(final, file = "./Week4_Getting_Cleaning_Data .txt",row.name=FALSE)
+             write.table(final, file = "./Week4_Tidy_dataset .txt",row.name=FALSE)
