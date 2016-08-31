@@ -85,12 +85,11 @@ These two datasets are appended since they were randomly partitioned for trainin
 			4: SITTING,<br>
 			5: STANDING <br>
 			6: LAYING
- <br>
+ 
 			      
 	   		**Merge()** adds descriptive activity name to its corresponding activity number.It adds the activity name column at the end of the dataset hence the dataset was reordered to make activity name as the first column and remove Activity number column
 		
- * **Task 4**: The labels were made cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
-	  
+ * **Task 4**: The labels were made cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.	  
 		Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'<br>
 			**sub()** replaces only the first instance of the pattern <br><br>
 
