@@ -123,6 +123,14 @@ These two datasets are appended since they were randomly partitioned for trainin
 		 
 			  		    
 
+Task 5 hence generates a tidy data set that meets the tidy data principles based on Hadley Wickham Paper which states that in ** tidy data **
+
+1. Each variable forms a column.
+2. Each observation forms a row.
+3. Each type of observational unit forms a table.
+
+Please read [Hadley Wickham Paper](http://vita.had.co.nz/papers/tidy-data.pdf)
+	
 
 Tidy data created with above steps is not made to be look neat in programs like notepad (usually default for text files on windows) 
 Hence **write.table()** is used to save the data to a file _'Week4_Getting_Cleaning_Data.txt'_ in the working directory. 
