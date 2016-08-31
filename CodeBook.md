@@ -17,23 +17,30 @@ See README.txt for analysis of run_analyis.R
 
 ### Variables in run_analysis.R:
 
-	 #### Activity  
-	 #### Subject
-	 #### Measurement Variables  (79 columns)
-
-
-### Activity Variable 
-		Activity Description	Corresponding Activity Number
-	1.	WALKING				  1
-	2. 	WALKING_UPSTAIRS		2
-	3. 	WALKING_DOWNSTAIRS		3
-	4. 	SITTING				  4
-	5. 	STANDING			  5
-	6. 	LAYING				  6
+	**Activity**
+	**Subject**
+	**Measurement Variables**  (79 columns)
 
 		
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
-### Subject
+
+### Activity Variable
+
+Activity Variable contains the descriptive activity name instead of activity number that was present in the raw data files.<br>
+The descriptive activity names are as follows:
+
+
+		Activity Description	Corresponding Activity Number
+	1.	WALKING				   1
+	2. 	WALKING_UPSTAIRS		2
+	3. 	WALKING_DOWNSTAIRS		3
+	4. 	SITTING				   4
+	5. 	STANDING			   5
+	6. 	LAYING				   6
+
+		
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+### Subject Variable
 
 The experiments have been carried out with a group of 30 volunteers also called subject within an age bracket of 19-48 years.<br>
 Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
