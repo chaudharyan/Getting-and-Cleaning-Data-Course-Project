@@ -71,58 +71,57 @@ The two datasets are created namely training dataset and test dataset by adding 
 These two datasets are appended since they were randomly partitioned for training and testing purpose as mentioned earlier
 		  
  * **Task 1**: The two datasets above are joined together to create a single dataset called joined_dataset <br>
-	**rbind()** appends test dataset to train dataset 
+			**rbind()** appends test dataset to train dataset 
 
 		 joined_data<-rbind(train_data,test_data)
 
  * **Task 2**: Extracted measurement columns from joined_data where the column names contain either 'mean' or 'std' string.<br>
-	   **Grep()** searches for these strings anywhere in the column names and returns the column index 
+	   		**Grep()** searches for these strings anywhere in the column names and returns the column index 
 
  * **Task 3**:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as<br> 
-		1: WALKING,
-		2: WALKING_UPSTAIRS,
-		3: WALKING_DOWNSTAIRS,
-		4: SITTING,
-		5: STANDING 
-		6: LAYING
- 
+			1: WALKING,<br>
+			2: WALKING_UPSTAIRS,<br>
+			3: WALKING_DOWNSTAIRS,<br>
+			4: SITTING,<br>
+			5: STANDING <br>
+			6: LAYING
+ <br>
 			      
-	   **Merge()** adds descriptive activity name to its corresponding activity number. <br>
-	   It adds the activity name column at the end of the dataset hence the dataset was reordered to make activity name as the first column and remove Activity number column
+	   		**Merge()** adds descriptive activity name to its corresponding activity number.It adds the activity name column at the end of the dataset hence the dataset was reordered to make activity name as the first column and remove Activity number column
 		
  * **Task 4**: The labels were made cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
 	  
-	Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'<br>
-		**sub()** replaces only the first instance of the pattern <br><br>
+		Replace letter 't' or 'f' in the beginning of the column name with 'Time' or 'Frequency'<br>
+			**sub()** replaces only the first instance of the pattern <br><br>
 
-	  	colnames(final_data)<- sub("^t", "Time", names(final_data))
-		colnames(final_data)<- sub("^f", "Frequency", names(final_data))	
+	  		colnames(final_data)<- sub("^t", "Time", names(final_data))
+			colnames(final_data)<- sub("^f", "Frequency", names(final_data))	
 	 
           
-	<br>Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'<br>
-		**gsub()** replaces all instances of pattern string<br><br>
+		<br>Replace abbreviated 'Acc','std()','Freq()','Mag' to 'Accelearation','StandardDeviation()','Frequency()' and 'Magnitude'<br>
+			**gsub()** replaces all instances of pattern string<br><br>
 
-		colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
-                colnames(final_data)<- gsub("std\\()", "StandardDeviation\\()", names(final_data))
-                colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
-                colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
+			colnames(final_data)<- gsub("Acc", "Acceleration", names(final_data))
+			colnames(final_data)<- gsub("std\\()", "StandardDeviation\\()", names(final_data))
+			colnames(final_data)<- gsub("Freq\\()", "Frequency\\()", names(final_data))
+			colnames(final_data)<- gsub("Mag", "Magnitude", names(final_data))
 
-	<br>Replace words with lowercase first letter to Uppercase<br><br>
+		<br>Replace words with lowercase first letter to Uppercase<br><br>
 
-		colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
-		colnames(final_data)<- gsub("mean", "Mean", names(final_data))
+			colnames(final_data)<- gsub("frequency", "Frequency", names(final_data))
+			colnames(final_data)<- gsub("mean", "Mean", names(final_data))
 
-	<br>Remove any paranthesis and replace any word 'BodyBody' to 'Body'<br><br>
+		<br>Remove any paranthesis and replace any word 'BodyBody' to 'Body'<br><br>
 
-		colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
-		colnames(final_data)<- gsub("\\()", "", names(final_data))
+			colnames(final_data)<- gsub("BodyBody", "Body", names(final_data))
+			colnames(final_data)<- gsub("\\()", "", names(final_data))
 
 	
 		
 
  * **Task 5** : Summarize the dataset by finding average value of all the variables by Activity and by Subject.<br>
-		Variable here means independent measurements of activity/subject actions<br>
-			**aggregate()** is used to find mean of all measurement labels for each activity and subject<br>
+			Variable here means independent measurements of activity/subject actions<br>
+				**aggregate()** is used to find mean of all measurement labels for each activity and subject<br>
 		 
 			  		    
 
