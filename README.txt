@@ -1,7 +1,10 @@
 
+GETTING AND CLEANING DATA COURSE README
+====================================================================================================================================================================
 
-The repo includes the following files:
-=========================================
+
+This repo includes the following files:
+
 	1. run_analysis.R : R script file which load, transforms and outputs a tidy data set
 	2. CodeBook.md 	  : Indicates all the variables and summaries calculated, along with units, and any other relevant information.
 	3. Week4_Getting_Cleaning_Data.txt : Output file generated after running run_analysis.R 
@@ -19,10 +22,9 @@ Background for run_analysis.R:
 
 
 For the purpose of our project we are getting the raw data from : Human Activity Recognition Using Smartphones Dataset (Version 1.0)
-								  ===================================================================
+								  
 
 For each record it is provided:
-======================================
 
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -65,38 +67,40 @@ The Script first sets the working directory which can be changed by any user.
 					colnames(train_x)<-feature$V2
             
 
-		  It creates two datasets ,training dataset and test dataset, by column binding the Subject and Activity files to X_train and X_test files.
-		  That is , these two datasets are appended since they were randomly partitioned for training and testing purpose as mentioned earlier
+It creates two datasets ,training dataset and test dataset, by column binding the Subject and Activity files to X_train and X_test files.
+These two datasets are appended since they were randomly partitioned for training and testing purpose as mentioned earlier
 		  
-		  For Task 1 above : these two datasets are joined together to create a single dataset called joined_dataset
-				     Using rbind() to add test dataset rows to train dataset rows 
+For Task 1: These two datasets are joined together to create a single dataset called joined_dataset
+		   Using rbind() to add test dataset rows to train dataset rows 
+
 		   			joined_data<-rbind(train_data,test_data)
 
-		  For Task 2: Only those measurement columns are extracted from above dataset which contains either strings 'mean' or 'std'
-			      Grep() is used as these strings could be found anywhere (beginning, middle or end) in the column names
+For Task 2: Only those measurement columns are extracted from above dataset which contains either strings 'mean' or 'std'
+		   Grep() is used as these strings could be found anywhere (beginning, middle or end) in the column names
 
-		  For Task 3 : We need to rename all the activities (listed as numbers 1-6) with their descriptive names such as 1 WALKING 
-2 WALKING_UPSTAIRS
- 3 WALKING_DOWNSTAIRS
- 4 SITTING
- 5 STANDING 
-6 LAYING
+For Task 3:Rename all the activities (listed as numbers 1-6) with their corresponding descriptive names such as 
+	   WALKING,
+	   WALKING_UPSTAIRS,
+	   WALKING_DOWNSTAIRS,
+ 	   SITTING,
+	   STANDING 
+	   LAYING
 
-			       where 1 corresponds to WALKING and so on.
-			       Merge() is used to merge based on activity number to extract the activity name . Reordered the dataset to show only the Activity name and remove Activity number column
+			      
+	   Merge() is used to add activity name to its corresponding activity number. Reordered dataset to keep Activity name and remove Activity number column
 		
-		  For Task 4: Descriptive variable names means names based on the action the variable is recording, for example the Jerk of the body on the z axis of the phone.
-			      The labels are made more cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
+For Task 4: Descriptive variable names means names based on the action the variable is recording, for example the Jerk of the body on the z axis of the phone.
+	    The labels are made more cleaner and descriptive by replacing abbreviations with full defintions , replacing paranthesis etc.
 					
  
-		  For Task 5 : The above dataset is summarized by finding the average value of all the measurement variables by Activity by Subject. 
-				Variable here means independent measurements of activity/subject actions
-				Aggregate() is used to find mean of all measurement labels based on activity and subject
+For Task 5 : The above dataset is summarized by finding the average value of all the variables by Activity by Subject. 
+	     Variable here means independent measurements of activity/subject actions
+	     Aggregate() is used to find mean of all measurement labelsfor each activity and each subject
 			      
 
 
-Tidy data is not made to be look neat in programs like notepad (which is often the default for text files on windows) hence write.table is used to save 
-the data to a file 'Week4_Getting_Cleaning_Data' in the working directory. 
+Tidy data is not made to be look neat in programs like notepad (which is often the default for text files on windows) 
+hence write.table is used to save the data to a file 'Week4_Getting_Cleaning_Data.txt' in the working directory. 
 
 
 View the data in Week4_Getting_Cleaning_Data.txt
