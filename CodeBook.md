@@ -17,9 +17,9 @@ See README.txt for analysis of run_analyis.R
 
 ### Variables in run_analysis.R:
 
-**Activity**
-**Subject**
-**Measurement Variables**  (79 columns)
+**Activity** <br>
+**Subject**<br>
+**Measurement Variables**  (79 columns)<br>
 
 		
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
